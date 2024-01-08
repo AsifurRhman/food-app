@@ -10,7 +10,7 @@ export default function CoverSection() {
           Everything<br />
           is better<br />
           with a&nbsp;
-          <span className="text-orange-600">
+          <span className="text-emerald-500">
             Pizza
           </span>
         </h1>
@@ -18,7 +18,7 @@ export default function CoverSection() {
           Pizza is the missing piece that makes every day complete, a simple yet delicious joy in life
         </p>
         <div className="flex gap-4 text-sm">
-          <button className="flex justify-center bg-orange-600 uppercase flex items-center gap-2 text-white px-4 py-2 rounded-full">
+          <button className="flex justify-center bg-emerald-500 uppercase  items-center gap-2 text-white px-4 py-2 rounded-full">
             Order now
             <Right />
           </button>

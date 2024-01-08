@@ -1,6 +1,13 @@
-import { Inter,Roboto } from 'next/font/google'
-import './globals.css'
 
+//'use client'
+
+import { Inter, Roboto } from 'next/font/google'
+import './globals.css'
+import ScrollToTop from 'react-scroll-to-top'
+import dynamic from 'next/dynamic'
+const WhatsAppWidget = dynamic(() => import('react-whatsapp-chat-widget'), {
+  ssr: false,
+})
 // const inter = Inter({ subsets: ['latin'] })
 const roboto = Roboto({ subsets: ['latin'], weight: ['400', '500', '700'] })
 export const metadata = {
@@ -17,7 +24,29 @@ export default function RootLayout({ children }) {
         <main className="max-w-6xl mx-auto p-2 text-gray-700 font-semibold">
          
             {children}
-           
+            {/* <ScrollToTop
+                smooth
+                style={{
+                    backgroundColor: "#1E1649",
+                    borderRadius: "50%",
+                    boxShadow: "none",
+                    right: 20,
+                    bottom: 100,
+                    // border:"1px solid #00C0FF"
+                }}
+                color="#00C0FF"
+                viewBox="0 0 160 256"
+          /> */}
+           {/* <WhatsAppWidget
+          headerIcon="https://i.ibb.co/p4jbKdz/pizza.png"
+          companyName="Devstain Studios"
+          chatMessage="Hello Sir, How can I help you?"
+          phoneNo="8801858557886"
+          autoOpenTimer={0}
+          iconColor="#008000"
+          chatPersonName="Devstain Studios"
+          position="center"
+          style={{ border: 'none' }}/> */}
         </main>
       </body>
       
