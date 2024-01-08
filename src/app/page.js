@@ -1,14 +1,14 @@
 import CoverSection from '@/Components/CoverSction/CoverSection'
 import Menu from '@/Components/Menu/Menu'
 import MenuHeader from '@/Components/Menu/MenuHeader'
-import Header from '@/Components/Shared/Header'
+import Navbar from '@/Components/Shared/Navbar'
 
 
 
 export default function Home() {
   return (
     <>
-      <Header />
+  
       <CoverSection />
       <Menu />
       <section className="text-center my-16" id="about">
