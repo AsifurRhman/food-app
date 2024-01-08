@@ -17,7 +17,7 @@ function AuthLinks({status, userName}) {
         </Link>
         <button
           onClick={() => signOut()}
-          className="bg-primary rounded-full text-white px-8 py-2">
+          className="bg-emerald-500 rounded-full text-white px-8 py-2">
           Logout
         </button>
       </>
@@ -27,7 +27,7 @@ function AuthLinks({status, userName}) {
     return (
       <>
         <Link href={'/login'}>Login</Link>
-        <Link href={'/register'} className="bg-primary rounded-full text-white px-8 py-2">
+        <Link href={'/register'} className="bg-emerald-500 rounded-full text-white px-8 py-2">
           Register
         </Link>
       </>
@@ -89,7 +89,7 @@ export default function Navbar() {
           <Link href={'/#contact'}>Contact</Link>
         </nav>
         <nav className="flex items-center gap-4 text-gray-500 font-semibold">
-          {/* <AuthLinks status={status} userName={userName} /> */}
+          <AuthLinks status={status} userName={userName} />
           <Link href={'/cart'} className="relative">
             {/* <ShoppingCart />
             {cartProducts?.length > 0 && (

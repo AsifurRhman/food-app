@@ -7,6 +7,8 @@ import ScrollToTop from 'react-scroll-to-top'
 import dynamic from 'next/dynamic'
 import Footer from '@/Components/Shared/Footer'
 import Navbar from '@/Components/Shared/Navbar'
+import { Toaster } from 'react-hot-toast'
+import {AppProvider} from "@/components/Provider/AppContext";
 const WhatsAppWidget = dynamic(() => import('react-whatsapp-chat-widget'), {
   ssr: false,
 })
@@ -24,6 +26,7 @@ export default function RootLayout({ children }) {
       
 <body className={roboto.className}>
         <main className="max-w-6xl mx-auto p-2 text-gray-700 font-semibold">
+       <AppProvider>
         <Navbar/>
             {children}
             {/* <ScrollToTop
@@ -49,7 +52,9 @@ export default function RootLayout({ children }) {
           chatPersonName="Devstain Studios"
           position="center"
           style={{ border: 'none' }}/> */}
-          <Footer/>
+          <Footer />
+            <Toaster />
+            </AppProvider>
         </main>
       </body>
       
