@@ -1,3 +1,4 @@
+import CoverSection from '@/Components/CoverSction/CoverSection'
 import Header from '@/Components/Shared/Header'
 
 
@@ -5,7 +6,8 @@ import Header from '@/Components/Shared/Header'
 export default function Home() {
   return (
     <>
-      <Header/>
+      <Header />
+      <CoverSection/>
     </>
   )
 }
