@@ -29,7 +29,7 @@ input[type="password"],
 input[type="tel"],
 input[type="text"] {
     @apply block w-full mb-2 rounded-xl;
-    @apply border p-2 border-gray-700 bg-gray-400;
+    @apply border p-2 border-gray-300 bg-gray-300;
 }
 input[type="email"]:disabled,
 input[type="password"]:disabled,

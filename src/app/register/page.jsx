@@ -1,5 +1,6 @@
 "use client";
-import {signIn} from "next-auth/react";
+
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import {useState} from "react";
@@ -7,6 +8,7 @@ import toast from "react-hot-toast";
 
 export default function RegisterPage() {
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [creatingUser, setCreatingUser] = useState(false);
   const [userCreated, setUserCreated] = useState(false);
@@ -20,7 +22,7 @@ export default function RegisterPage() {
     setUserCreated(false);
     const response = await fetch('/api/register', {
       method: 'POST',
-      body: JSON.stringify({email, password}),
+      body: JSON.stringify({name,email, password}),
       headers: {'Content-Type': 'application/json'},
     });
     if (response.ok) {
@@ -48,6 +50,10 @@ export default function RegisterPage() {
         </div>
       )} */}
       <form className="block max-w-xs mx-auto" onSubmit={handleFormSubmit}>
+        
+        <input type="text" placeholder="name" value={name}
+               disabled={creatingUser}
+               onChange={ev => setName(ev.target.value)} />
         <input type="email" placeholder="email" value={email}
                disabled={creatingUser}
                onChange={ev => setEmail(ev.target.value)} />

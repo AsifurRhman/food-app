@@ -37,7 +37,9 @@ function AuthLinks({status, userName}) {
 
 export default function Navbar() {
   const session = useSession();
+  console.log(session,"session")
   const status = session?.status;
+  console.log(status,"status")
   const userData = session.data?.user;
   let userName = userData?.name || userData?.email;
   const [mobileNavOpen, setMobileNavOpen] = useState(false);

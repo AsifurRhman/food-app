@@ -2,10 +2,14 @@ import CoverSection from '@/Components/CoverSction/CoverSection'
 import Menu from '@/Components/Menu/Menu'
 import MenuHeader from '@/Components/Menu/MenuHeader'
 import Navbar from '@/Components/Shared/Navbar'
+import { authOptions } from './api/auth/[...nextauth]/route'
+import { getServerSession } from 'next-auth'
 
 
 
-export default function Home() {
+export default async function Home() {
+  const session = await getServerSession(authOptions)
+  console.log(session,"getserve from page.js");
   return (
     <>
   
