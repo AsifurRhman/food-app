@@ -43,6 +43,7 @@ export default function Navbar() {
   const userData = session.data?.user;
   let userName = userData?.name || userData?.email;
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  
   if (userName && userName.includes(' ')) {
     userName = userName.split(' ')[0];
   }
