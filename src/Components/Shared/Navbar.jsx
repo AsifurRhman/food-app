@@ -52,7 +52,7 @@ export default function Navbar() {
      <header>
       <div className="flex items-center md:hidden justify-between">
         <Link className="text-emerald-500 font-semibold text-2xl" href={'/'}>
-          CLOUD Kitchen
+          FamilY Kitchen
         </Link>
         <div className="flex gap-8 items-center">
           <Link href={'/cart'} className="relative">
@@ -84,7 +84,7 @@ export default function Navbar() {
       <div className="hidden md:flex items-center justify-between">
         <nav className="flex items-center gap-8 text-gray-500 font-semibold">
           <Link className="text-emerald-500 font-semibold text-2xl" href={'/'}>
-            CLOUD Kitchen
+          FamilY Kitchen
           </Link>
           <Link href={'/'}>Home</Link>
           <Link href={'/menu'}>Menu</Link>

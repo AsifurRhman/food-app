@@ -48,7 +48,7 @@ export default function ProfilePage() {
 
     await toast.promise(savingPromise, {
       loading: 'Saving...',
-      success: 'Profile saved!',
+      success: 'Profile saved successfully',
       error: 'Error',
     });
 

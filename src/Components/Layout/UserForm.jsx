@@ -6,9 +6,11 @@ import EditableImage from "./EditableImage";
 import AddressInputs from "./AddressInputs";
 import { UserProfile } from "../UserProfile/UserProfile";
 
-export default function UserForm({user,onSave}) {
+export default function UserForm({ user, onSave }) {
+  console.log(user,"user")
   const [userName, setUserName] = useState(user?.name || '');
   const [image, setImage] = useState(user?.image || '');
+  console.log(image,"image")
   const [phone, setPhone] = useState(user?.phone || '');
   const [streetAddress, setStreetAddress] = useState(user?.streetAddress || '');
   const [postalCode, setPostalCode] = useState(user?.postalCode || '');
