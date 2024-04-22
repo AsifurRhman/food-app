@@ -88,7 +88,7 @@ export default function UserForm({ user, onSave }) {
         <button type="submit">Save</button>
       </form>
       <div>
-        <div className="p-2 rounded-lg relative max-w-[120px]">
+        <div className="p-2 rounded-lg relative max-w-[120px] ">
          
           <CldUploadButton
   onUpload={handleImageUpload}
@@ -108,29 +108,34 @@ className = {`h-60 w-60 border-2 mt-4 border-dotted grid place-items-center bg-s
       src={imageUrl}
       width={550}
       height={550}
-      className="absolute object-cover inset-0"
+      className="absolute object-contain"
       alt="Image not found"
+      layout="fixed"
     />
   ) : image ? (
     <Image
-      className="absolute object-cover inset-0"
+      className="absolute object-contain"
       src={image}
       width={550}
       height={550}
       alt={'avatar'}
+      layout="fixed"
     />
   ) : (
     <Image
-      className="absolute object-cover inset-0"
+      className="absolute object-contain"
       src={NoImage}
       width={550}
       height={550}
       alt={'avatar'}
+      layout="fixed"
     />
   )
 }
           </CldUploadButton>
+         
         </div>
+        <span className=" block border border-gray-300 rounded-lg p-2 text-center m-5">Click on image for change</span>
       </div>
     </div>
   );
