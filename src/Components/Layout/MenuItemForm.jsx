@@ -107,7 +107,8 @@ className = {`h-60 w-60 border-2 mt-4 border-dotted grid place-items-center bg-s
             onChange={ev => setName(ev.target.value)}
           />
           <label>Description</label>
-          <input
+          <textarea
+            rows="10" cols="40"
             type="text"
             value={description}
             onChange={ev => setDescription(ev.target.value)}
