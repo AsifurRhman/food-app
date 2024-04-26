@@ -8,9 +8,9 @@ import Image from "next/image";
 import MenuItemPriceProps from "./MenuItemPriceProps ";
 import NoImage from '../../food-upload.jpg'
 export default function MenuItemForm({onSubmit,menuItem}) {
-    const [image, setImage] = useState(menuItem?.image || '');
-    const [imageUrl, setImageUrl] = useState("");
-    const [publicId, setPublicId] = useState("");
+  const [image, setImage] = useState(menuItem?.image || '');
+  const [imageUrl, setImageUrl] = useState("");
+  const [publicId, setPublicId] = useState("");
   const [name, setName] = useState(menuItem?.name || '');
   const [description, setDescription] = useState(menuItem?.description || '');
   const [basePrice, setBasePrice] = useState(menuItem?.basePrice || '');
@@ -99,7 +99,7 @@ className = {`h-60 w-60 border-2 mt-4 border-dotted grid place-items-center bg-s
 }
           </CldUploadButton>
         </div>
-        <div className="grow">
+        <div className="">
           <label>Item name</label>
           <input
             type="text"

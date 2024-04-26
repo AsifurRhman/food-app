@@ -19,6 +19,7 @@
     "next-cloudinary": "^6.3.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-flying-item": "^1.1.3",
     "react-hot-toast": "^2.4.1",
     "react-scroll-to-top": "^3.0.0",
     "react-whatsapp-chat-widget": "^1.1.6"

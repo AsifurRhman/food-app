@@ -9,7 +9,7 @@ import Image from "next/image";
 import NoImage from '../../no-image.png'
 export default function UserForm({ user, onSave }) {
   console.log(user,"user")
-  const [userName, setUserName] = useState(user?.name || '');
+ const[userName, setUserName] = useState(user?.name || '');
   const [image, setImage] = useState(user?.image || '');
   console.log(image, "image")
   const [imageUrl, setImageUrl] = useState("");
@@ -42,7 +42,12 @@ export default function UserForm({ user, onSave }) {
         console.log("url: ", url);
         console.log("public_id: ", public_id);
     }
-};
+  };
+ 
+
+
+
+  
   return (
     <div className="md:flex gap-4">
       
@@ -66,7 +71,7 @@ export default function UserForm({ user, onSave }) {
         <input
           type="email"
           disabled={true}
-          value={user.email}
+          value={user?.email}
           placeholder={'email'}
         />
         <AddressInputs
