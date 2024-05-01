@@ -11,11 +11,18 @@ export default function AddToCartButton({
           targetLeft={'95%'}
           src={image}>
           <div onClick={onClick}>
-            Add to cart ${basePrice}
+            Add to cart ({basePrice}/-)
           </div>
         </FlyingButton>
       </div>
     );
+  }
+  let cartText;
+  if (basePrice <= 0) {
+   cartText= <span>Add to cart </span>
+  }
+  else {
+    cartText=  <span>Add to cart (price:- {basePrice}/-)</span>
   }
   return (
     <button
@@ -23,7 +30,8 @@ export default function AddToCartButton({
       onClick={onClick}
       className="mt-4 bg-emerald-500 text-white rounded-full px-8 py-2"
     >
-      <span>Add to cart (from {basePrice}/-)</span>
+      
+      {cartText}
     </button>
   );
 }

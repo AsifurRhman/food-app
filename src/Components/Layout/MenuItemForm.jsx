@@ -98,6 +98,7 @@ className = {`h-60 w-60 border-2 mt-4 border-dotted grid place-items-center bg-s
   )
 }
           </CldUploadButton>
+          <span className=" block border border-gray-300 rounded-lg p-2 text-center m-5">Click on image for change</span>
         </div>
         <div className="">
           <label>Item name</label>

@@ -5,8 +5,16 @@ import MenuItemTile from "./MenuItemTile";
 import FlyingButton from 'react-flying-item'
 import { useContext, useState } from "react";
 import { CartContext } from "../Provider/AppContext";
+import toast from "react-hot-toast";
+import { UserProfile } from "../UserProfile/UserProfile";
+
+
 
 export default function MenuItem(menuItem) {
+  const { addToCart} = useContext(CartContext);
+  const { data } = UserProfile();
+  console.log(data.email, "data============menuItem page")
+  //const email = data?.email
   const {
     image,name,description,basePrice,
     sizes, extraIngredientPrices,
@@ -16,16 +24,22 @@ export default function MenuItem(menuItem) {
   ] = useState(sizes?.[0] || null);
   const [selectedExtras, setSelectedExtras] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
-  const {addToCart} = useContext(CartContext);
+
+  //console.log(addToCart, "addtocart");
+ // console.log(CartContext, "CartContext")
+  
 
   async function handleAddToCartButtonClick() {
-    console.log('add to cart');
+    console.log(' enter handleAddToCartButtonClick');
     const hasOptions = sizes.length > 0 || extraIngredientPrices.length > 0;
     if (hasOptions && !showPopup) {
       setShowPopup(true);
       return;
     }
+   // console.log(menuItem, "menuItem from handleAddToCartButtonClick");
+    console.log(selectedSize, selectedExtras,"selectedSize, selectedExtras from handleAddToCartButtonClick");
     addToCart(menuItem, selectedSize, selectedExtras);
+    toast.success("adding to the cart")
     await new Promise(resolve => setTimeout(resolve, 1000));
     console.log('hiding popup');
     setShowPopup(false);
@@ -84,7 +98,7 @@ export default function MenuItem(menuItem) {
                         onChange={() => setSelectedSize(size)}
                         checked={selectedSize?.name === size.name}
                         name="size"/>
-                      {size.name} ${basePrice + size.price}
+                      {size.name} :- {basePrice + size.price}/-
                     </label>
                   ))}
                 </div>
@@ -101,7 +115,7 @@ export default function MenuItem(menuItem) {
                         onChange={ev => handleExtraThingClick(ev, extraThing)}
                         checked={selectedExtras.map(e => e._id).includes(extraThing._id)}
                         name={extraThing.name} />
-                      {extraThing.name} = {extraThing.price}/-
+                      {extraThing.name} :- {extraThing.price}/-
                     </label>
                   ))}
                 </div>
@@ -111,9 +125,10 @@ export default function MenuItem(menuItem) {
                 targetTop={'5%'}
                 targetLeft={'95%'}
                 src={image}>
-                <div className=" sticky bottom-2 text-primary"
+                
+                <div className=" sticky bottom-2 text-white shadow-xl bg-primary px-8 py-2 rounded-lg"
                      onClick={handleAddToCartButtonClick}>
-                  Add to cart {selectedPrice}/-
+                  Add to cart ({selectedPrice}/-)
                 </div>
               </FlyingButton>
               <button

@@ -93,16 +93,16 @@ console.log(user,"user form edit user")
       <UserTabs isAdmin={true} />
       <div className="mt-8">
         {/* <UserForm user={user} onSave={handleSaveButtonClick} /> */}
-        <MakeAdmin user={user} onSave={handleSaveButtonClick}  />
+        <MakeAdmin user={user} onSave={handleSaveButtonClick} handleDeleteClick={handleDeleteClick} />
       </div>
-      <div className="max-w-md mx-auto mt-2">
+      {/* <div className="max-w-md mx-auto mt-2">
         <div className="max-w-xs ml-20 ">
           <DeleteButton
             label="Delete"
             onDelete={handleDeleteClick}
           />
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

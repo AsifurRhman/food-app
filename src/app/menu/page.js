@@ -19,7 +19,7 @@ export default function MenuPage() {
     <section className="mt-8">
       {categories?.length > 0 && categories.map(c => (
         <div key={c._id}>
-          <div className="text-center">
+          <div className="text-center font-times">
             <SectionHeaders mainHeader={c.name} />
           </div>
           <div className="grid sm:grid-cols-3 gap-4 mt-6 mb-12">

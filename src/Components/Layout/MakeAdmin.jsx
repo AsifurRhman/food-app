@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { UserProfile } from '../UserProfile/UserProfile';
+import DeleteButton from './DeleteButton';
 
-const MakeAdmin = ({ user, onSave }) => {
+const MakeAdmin = ({ user, onSave,handleDeleteClick }) => {
     const { data: loggedInUserData } = UserProfile();
     console.log(loggedInUserData,"loggedInUserData")
  
@@ -11,14 +12,14 @@ const MakeAdmin = ({ user, onSave }) => {
   
 
   let design;
-
   if (loggedInUserData._id === user?._id) { 
-    design = <p className="text-red-500 text-center font-times text-xl"> you cant remove your self from admin </p>
+    design = <p className="text-red-500 text-center font-times text-2xl "> you cant remove your self  </p>
   }
 
   else {
     design = 
-    <form
+      <>
+          <form
     className="grow"
     onSubmit={ev =>
       onSave(ev, {
@@ -61,11 +62,23 @@ const MakeAdmin = ({ user, onSave }) => {
 
   <button type="submit">Save</button>
 </form>
+<div className="max-w-md mx-auto mt-2">
+<div className="max-w-xs ml-20 ">
+  <DeleteButton
+    label="Delete"
+    onDelete={handleDeleteClick}
+  />
+</div>
+</div>
+
+</>
+
 }
     return (
         <div>
    
         {design}
+     
         </div>
     );
 };

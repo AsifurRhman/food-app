@@ -8,7 +8,8 @@ import dynamic from 'next/dynamic'
 import Footer from '@/Components/Shared/Footer'
 import Navbar from '@/Components/Shared/Navbar'
 import { Toaster } from 'react-hot-toast'
-import {AppProvider} from "@/components/Provider/AppContext";
+import { AppProvider } from '@/Components/Provider/AppContext'
+
 const WhatsAppWidget = dynamic(() => import('react-whatsapp-chat-widget'), {
   ssr: false,
 })
@@ -21,9 +22,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
 
-      
 <body className={roboto.className}>
         <main className="max-w-6xl mx-auto p-2 text-gray-700 font-semibold">
        <AppProvider>
@@ -44,12 +44,12 @@ export default function RootLayout({ children }) {
           /> */}
            {/* <WhatsAppWidget
           headerIcon="https://i.ibb.co/p4jbKdz/pizza.png"
-          companyName="Devstain Studios"
+          companyName="Family Kitchen"
           chatMessage="Hello Sir, How can I help you?"
           phoneNo="8801858557886"
           autoOpenTimer={0}
           iconColor="#008000"
-          chatPersonName="Devstain Studios"
+          chatPersonName="Family Kitchen"
           position="center"
           style={{ border: 'none' }}/> */}
           <Footer />
