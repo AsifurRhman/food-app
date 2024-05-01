@@ -13,14 +13,14 @@ export default function EditUserPage() {
   const { loading, data } = UserProfile();
   const [refetch,setRefetch] = useState(null)
  
-  //console.log(data, "edit user page")
+  ////console.log(data, "edit user page")
   const [redirectToItems, setRedirectToItems] = useState(false);
   const [user, setUser] = useState(null);
-console.log(user,"user form edit user")
+//console.log(user,"user form edit user")
   const { id } = useParams();
   
   const [admin, setAdmin] = useState(user?.admin || false);
-  console.log(admin, "set admin")
+  //console.log(admin, "set admin")
 
   
   useEffect(() => {
@@ -33,7 +33,7 @@ console.log(user,"user form edit user")
 
   async function handleSaveButtonClick(ev, data) {
     ev.preventDefault();
-    console.log(data,"data from save button")
+    //console.log(data,"data from save button")
     const promise = new Promise(async (resolve, reject) => {
       const res = await fetch('/api/profile', {
         method: 'PUT',
@@ -65,7 +65,7 @@ console.log(user,"user form edit user")
   }
   async function handleDeleteClick() {
     const promise = new Promise(async (resolve, reject) => {
-      console.log(id,"id")
+      //console.log(id,"id")
       const res = await fetch('/api/users?_id='+id, {
         method: 'DELETE',
       });

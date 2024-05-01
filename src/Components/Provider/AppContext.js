@@ -23,7 +23,7 @@ export function AppProvider({ children }) {
   const [cartProducts,setCartProducts] = useState([]);
 
   const ls = typeof window !== 'undefined' ? window.localStorage : null;
-//console.log(ls,"ls======================ls")
+////console.log(ls,"ls======================ls")
   useEffect(() => {
     if (ls && ls.getItem('cart')) {
       setCartProducts( JSON.parse( ls.getItem('cart') ) );
@@ -52,7 +52,7 @@ export function AppProvider({ children }) {
   }
 
   // function addToCart(product, size = null, extras = []) {
-  //   console.log("enter add to cart")
+  //   //console.log("enter add to cart")
   //   setCartProducts(prevProducts => {
   //     const cartProduct = {...product, size, extras};
   //     const newProducts = [...prevProducts, cartProduct];
@@ -61,12 +61,12 @@ export function AppProvider({ children }) {
   //   });
   // }
   const addToCart = (product, size = null, extras = [],email) => {
-    console.log("enter add to cart");
-    console.log(email,"email===========from add to cart")
+    //console.log("enter add to cart");
+    //console.log(email,"email===========from add to cart")
     setCartProducts(prevProducts => {
       const cartProduct = { ...product, size, extras };
       const newProducts = [...prevProducts, cartProduct];
-      console.log(newProducts,"new products =======================from new products");
+      //console.log(newProducts,"new products =======================from new products");
       saveCartProductsToLocalStorage(newProducts);
       return newProducts;
     });

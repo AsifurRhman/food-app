@@ -11,10 +11,10 @@ export async function GET(req) {
   const session = await getServerSession(authOptions);
   const userEmail = session?.user?.email;
   const admin = await isAdmin();
-console.log(userEmail,"useremail=================userEmail=" )
+//console.log(userEmail,"useremail=================userEmail=" )
   const url = new URL(req.url);
     const _id = url.searchParams.get('_id');
-    console.log(_id,"_id======================_id")
+    //console.log(_id,"_id======================_id")
   if (_id) {
     return Response.json( await Order.findById(_id) );
   }

@@ -30,7 +30,7 @@ export default function MenuItemForm({onSubmit,menuItem}) {
     });
   }, []);
   const handleImageUpload = (result) => {
-    console.log("result: ", result);
+    //console.log("result: ", result);
     const info = result.info;
 
     if ("secure_url" in info && "public_id" in info) {
@@ -39,8 +39,8 @@ export default function MenuItemForm({onSubmit,menuItem}) {
       setImageUrl(url);
       setImage(url)
         setPublicId(public_id);
-        console.log("url: ", url);
-        console.log("public_id: ", public_id);
+        //console.log("url: ", url);
+        //console.log("public_id: ", public_id);
     }
 };
   return (

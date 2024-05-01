@@ -7,6 +7,7 @@ import {useEffect, useState} from "react";
 export default function MenuPage() {
   const [categories, setCategories] = useState([]);
   const [menuItems, setMenuItems] = useState([]);
+  //console.log(menuItems,"menuItems====================menuItems")
   useEffect(() => {
     fetch('/api/categories').then(res => {
       res.json().then(categories => setCategories(categories))

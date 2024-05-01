@@ -27,7 +27,7 @@ export const authOptions = {
         async authorize(credentials, req) {
           const email = credentials?.email;
           const password = credentials?.password;
-          console.log(email, password, "email-pass");
+          //console.log(email, password, "email-pass");
           mongoose.connect(process.env.DATABASE_URL);
           const user = await User.findOne({ email });
           const passwordOk = user && bcrypt.compareSync(password, user.password);
@@ -67,7 +67,7 @@ export const authOptions = {
 
 export async function isAdmin() {
     const session = await getServerSession(authOptions);
-    console.log(session,"gerserverSession")
+    //console.log(session,"gerserverSession")
   const userEmail = session?.user?.email;
   if (!userEmail) {
     return false;

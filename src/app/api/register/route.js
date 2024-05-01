@@ -19,7 +19,7 @@ export async function POST(req) {
     const createdUser = await User.create(body);
     return Response.json(createdUser);
   } catch (error) {
-    console.log(error,"error from server");
+    //console.log(error,"error from server");
   }
  
 }

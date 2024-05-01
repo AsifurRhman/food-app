@@ -14,12 +14,12 @@ import toast from "react-hot-toast";
 
 export default function CartPage() {
   const { cartProducts, removeCartProduct } = useContext(CartContext);
-  console.log(cartProducts,"cartProducts============cartProducts============")
+  //console.log(cartProducts,"cartProducts============cartProducts============")
   const [address, setAddress] = useState({});
   const {data:profileData} = UserProfile();;
   const { data } = UserProfile();
   const email = data?.email;
-  console.log(email,"email================email from cart page")
+  //console.log(email,"email================email from cart page")
   useEffect(() => {
     if (typeof window !== 'undefined') {
       if (window.location.href.includes('canceled=1')) {
@@ -40,7 +40,7 @@ export default function CartPage() {
         country,
    
       };
-      console.log(addressFromProfile,"addressFromProfile===========addressFromProfile")
+      //console.log(addressFromProfile,"addressFromProfile===========addressFromProfile")
       setAddress(addressFromProfile);
     }
   }, [profileData]);
@@ -55,9 +55,9 @@ export default function CartPage() {
   const proceedToCheckout = async (ev) => {
     ev.preventDefault();
     // address and shopping cart products
-    console.log(cartProducts, "cartProducts=========cartProducts");
+    //console.log(cartProducts, "cartProducts=========cartProducts");
     const promise = new Promise((resolve, reject) => {
-      console.log(address, "address==============address");
+      //console.log(address, "address==============address");
       fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -92,7 +92,7 @@ export default function CartPage() {
       <div className="text-center">
         <SectionHeaders mainHeader="Cart" />
       </div>
-      <div className="mt-8 grid gap-8 grid-cols-2">
+      <div className="mt-8 grid gap-8 md:grid-cols-2 grid-cols-1">
         <div>
           {cartProducts?.length === 0 && (
             <div>No products in your shopping cart</div>
@@ -105,7 +105,7 @@ export default function CartPage() {
               index={index}
             />
           ))}
-          <div className="py-2 pr-16 flex justify-end items-center">
+          <div className="py-2 pr-16 flex md:justify-end items-center justify-center">
             <div className="text-gray-500">
               Subtotal:<br />
               Delivery Fee:<br />

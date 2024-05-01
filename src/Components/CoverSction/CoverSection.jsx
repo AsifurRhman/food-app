@@ -1,6 +1,7 @@
 import React from 'react'
 import Right from '../Icons/Right'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function CoverSection() {
   return (
@@ -19,7 +20,8 @@ export default function CoverSection() {
         </p>
         <div className="flex gap-4 text-sm">
           <button className="flex justify-center bg-emerald-500 uppercase  items-center gap-2 text-white px-4 py-2 rounded-full">
-            Order now
+            
+            <Link href='/menu'>Order now</Link>
             <Right />
           </button>
           <button className="flex items-center border-0 gap-2 py-2 text-gray-600 font-semibold">

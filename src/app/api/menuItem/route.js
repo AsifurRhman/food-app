@@ -8,10 +8,10 @@ import { MenuItem } from "@/models/MenuItem";
 export async function POST(req) {
   mongoose.connect(process.env.DATABASE_URL);
     const data = await req.json();
-    console.log(data,"data from menu item route")
+    //console.log(data,"data from menu item route")
   if (await isAdmin()) {
       const menuItemDoc = await MenuItem.create(data);
-      console.log(menuItemDoc,"menuItemDoc");
+      //console.log(menuItemDoc,"menuItemDoc");
     return Response.json(menuItemDoc);
   } else {
     return Response.json({});

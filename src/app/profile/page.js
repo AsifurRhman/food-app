@@ -19,7 +19,7 @@ export default function ProfilePage() {
 
   useEffect(() => {
       if (status === 'authenticated') {
-        console.log("profile app entered")
+        //console.log("profile app entered")
       fetch('/api/profile').then(response => {
           response.json().then(data => {
            

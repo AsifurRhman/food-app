@@ -8,10 +8,10 @@ import { CldUploadButton, CldUploadWidgetResults } from 'next-cloudinary';
 import Image from "next/image";
 import NoImage from '../../no-image.png'
 export default function UserForm({ user, onSave }) {
-  console.log(user,"user")
+  //console.log(user,"user")
  const[userName, setUserName] = useState(user?.name || '');
   const [image, setImage] = useState(user?.image || '');
-  console.log(image, "image")
+  //console.log(image, "image")
   const [imageUrl, setImageUrl] = useState("");
   const [publicId, setPublicId] = useState("");
   const [phone, setPhone] = useState(user?.phone || '');
@@ -30,7 +30,7 @@ export default function UserForm({ user, onSave }) {
     if (propName === 'country') setCountry(value);
   }
   const handleImageUpload = (result) => {
-    console.log("result: ", result);
+    //console.log("result: ", result);
     const info = result.info;
 
     if ("secure_url" in info && "public_id" in info) {
@@ -39,8 +39,8 @@ export default function UserForm({ user, onSave }) {
       setImageUrl(url);
       setImage(url)
         setPublicId(public_id);
-        console.log("url: ", url);
-        console.log("public_id: ", public_id);
+        //console.log("url: ", url);
+        //console.log("public_id: ", public_id);
     }
   };
  

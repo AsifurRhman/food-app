@@ -4,11 +4,11 @@ import DeleteButton from './DeleteButton';
 
 const MakeAdmin = ({ user, onSave,handleDeleteClick }) => {
     const { data: loggedInUserData } = UserProfile();
-    console.log(loggedInUserData,"loggedInUserData")
+    //console.log(loggedInUserData,"loggedInUserData")
  
-    console.log(user,"user from make admin")
+    //console.log(user,"user from make admin")
     const [admin, setAdmin] = useState(user?.admin || false);
-  console.log(admin, "admin")
+  //console.log(admin, "admin")
   
 
   let design;

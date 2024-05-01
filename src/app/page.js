@@ -9,7 +9,7 @@ import { getServerSession } from 'next-auth'
 
 export default async function Home() {
   const session = await getServerSession(authOptions)
-  console.log(session,"getserve from page.js");
+  //console.log(session,"getserve from page.js");
   return (
     <>
   

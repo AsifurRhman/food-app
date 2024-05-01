@@ -4,16 +4,17 @@ import Image from "next/image";
 import MenuItemTile from "./MenuItemTile";
 import FlyingButton from 'react-flying-item'
 import { useContext, useState } from "react";
-import { CartContext } from "../Provider/AppContext";
+
 import toast from "react-hot-toast";
 import { UserProfile } from "../UserProfile/UserProfile";
+import { CartContext } from "../Provider/AppContext";
 
 
 
 export default function MenuItem(menuItem) {
   const { addToCart} = useContext(CartContext);
   const { data } = UserProfile();
-  console.log(data.email, "data============menuItem page")
+  //console.log(data.email, "data============menuItem page")
   //const email = data?.email
   const {
     image,name,description,basePrice,
@@ -24,24 +25,24 @@ export default function MenuItem(menuItem) {
   ] = useState(sizes?.[0] || null);
   const [selectedExtras, setSelectedExtras] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
-
+////console.log(menuItem,"menuItem=============menuItem")
   //console.log(addToCart, "addtocart");
- // console.log(CartContext, "CartContext")
+ // //console.log(CartContext, "CartContext")
   
 
   async function handleAddToCartButtonClick() {
-    console.log(' enter handleAddToCartButtonClick');
+    //console.log(' enter handleAddToCartButtonClick');
     const hasOptions = sizes.length > 0 || extraIngredientPrices.length > 0;
     if (hasOptions && !showPopup) {
       setShowPopup(true);
       return;
     }
-   // console.log(menuItem, "menuItem from handleAddToCartButtonClick");
-    console.log(selectedSize, selectedExtras,"selectedSize, selectedExtras from handleAddToCartButtonClick");
+     //console.log(menuItem, "menuItem from handleAddToCartButtonClick===========");
+    //console.log(selectedSize, selectedExtras,"selectedSize, selectedExtras from handleAddToCartButtonClick");
     addToCart(menuItem, selectedSize, selectedExtras);
     toast.success("adding to the cart")
     await new Promise(resolve => setTimeout(resolve, 1000));
-    console.log('hiding popup');
+    //console.log('hiding popup');
     setShowPopup(false);
   }
   function handleExtraThingClick(ev, extraThing) {

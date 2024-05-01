@@ -16,14 +16,14 @@ export default function NewMenuItemPage() {
 
   async function handleFormSubmit(ev, data) {
       ev.preventDefault();
-      console.log(data,"data from new menu item")
+      //console.log(data,"data from new menu item")
     const savingPromise = new Promise(async (resolve, reject) => {
       const response = await fetch('/api/menuItem', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json' },
       });
-        console.log(response,"response")
+        //console.log(response,"response")
       if (response.ok)
         resolve();
       else
