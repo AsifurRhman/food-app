@@ -6,15 +6,15 @@ console.log(process.env.STRIPE_SK,"webhook=============webhook")
 export async function POST(req) {
   const sig = req.headers.get('stripe-signature');
   let event;
-console.log("enter webhook")
+//console.log("enter webhook")
   try {
     const reqBuffer = await req.text();
       const signSecret = process.env.STRIPE_SIGN_SECRET;
-      console.log(signSecret, "signsecret===========sign secret")
+     // console.log(signSecret, "signsecret===========sign secret")
     event = stripe.webhooks.constructEvent(reqBuffer, sig, signSecret);
   } catch (e) {
-    console.error('stripe error');
-    console.log(e);
+    //console.error('stripe error');
+   // console.log(e);
     return Response.json(e, {status: 400});
   }
 

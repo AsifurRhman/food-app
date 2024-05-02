@@ -1,8 +1,9 @@
 'use client';
 
 import SectionHeaders from "@/Components/Layout/SectionHeaders";
+import { CartContext } from "@/Components/Provider/AppContext";
 import MenuItem from "@/components/menu/MenuItem";
-import {useEffect, useState} from "react";
+import { useEffect, useState} from "react";
 
 export default function MenuPage() {
   const [categories, setCategories] = useState([]);
@@ -16,6 +17,9 @@ export default function MenuPage() {
       res.json().then(menuItems => setMenuItems(menuItems));
     });
   }, []);
+
+ // console.log(addToCart);
+  
   return (
     <section className="mt-8">
       {categories?.length > 0 && categories.map(c => (
@@ -25,7 +29,7 @@ export default function MenuPage() {
           </div>
           <div className="grid sm:grid-cols-3 gap-4 mt-6 mb-12">
             {menuItems.filter(item => item.category === c._id).map(item => (
-              <MenuItem key={item._id} {...item} />
+              <MenuItem key={item._id} {...item}  />
             ))}
           </div>
         </div>

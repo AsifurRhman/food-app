@@ -12,7 +12,7 @@ import { CartContext } from "../Provider/AppContext";
 
 
 export default function MenuItem(menuItem) {
-  const { addToCart} = useContext(CartContext);
+  const { addToCart,removeCartProduct} = useContext(CartContext);
   const { data } = UserProfile();
   //console.log(data.email, "data============menuItem page")
   //const email = data?.email
@@ -26,7 +26,8 @@ export default function MenuItem(menuItem) {
   const [selectedExtras, setSelectedExtras] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
 ////console.log(menuItem,"menuItem=============menuItem")
-  //console.log(addToCart, "addtocart");
+  console.log(addToCart, "addtocart");
+  console.log(removeCartProduct, "removeCartProduct");
  // //console.log(CartContext, "CartContext")
   
 
@@ -37,7 +38,7 @@ export default function MenuItem(menuItem) {
       setShowPopup(true);
       return;
     }
-     //console.log(menuItem, "menuItem from handleAddToCartButtonClick===========");
+     console.log(menuItem, "menuItem from handleAddToCartButtonClick===========");
     //console.log(selectedSize, selectedExtras,"selectedSize, selectedExtras from handleAddToCartButtonClick");
     addToCart(menuItem, selectedSize, selectedExtras);
     toast.success("adding to the cart")

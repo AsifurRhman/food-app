@@ -2,12 +2,14 @@
 
 
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import MenuHeader from './MenuHeader'
 import MenuItem from './MenuItem'
+import { CartContext } from '../Provider/AppContext'
 
 export default function Menu() {
   const [bestSellers, setBestSellers] = useState([]);
+
   useEffect(() => {
     fetch('/api/menuItem').then(res => {
       res.json().then(menuItems => {
