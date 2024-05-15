@@ -1,5 +1,4 @@
-import Plus from "@/components/icons/Plus";
-import Trash from "@/components/icons/Trash";
+
 
 
 import {useEffect, useState} from "react";
