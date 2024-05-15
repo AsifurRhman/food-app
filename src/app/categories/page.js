@@ -1,6 +1,6 @@
 'use client';
 
-import UserTabs from "@/components/Layout/UserTabs";
+import UserTabs from "@/Components/Layout/UserTabs";
 import {useEffect, useState} from "react";
 
 import toast from "react-hot-toast";
