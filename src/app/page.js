@@ -2,7 +2,7 @@ import CoverSection from '@/Components/CoverSction/CoverSection'
 import Menu from '@/Components/Menu/Menu'
 import MenuHeader from '@/Components/Menu/MenuHeader'
 import Navbar from '@/Components/Shared/Navbar'
-import { authOptions } from './api/auth/[...nextauth]/route'
+import { authOptions } from './api/auth/[...nextAuth]/route'
 import { getServerSession } from 'next-auth'
 
 
