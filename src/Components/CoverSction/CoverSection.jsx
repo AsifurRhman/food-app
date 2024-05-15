@@ -31,7 +31,7 @@ export default function CoverSection() {
         </div>
       </div>
       <div className="relative hidden md:block">
-        <Image src={'/pizza.png'} layout={'fill'} objectFit={'contain'} alt={'pizza'} />
+        <Image src={'/pizza.png'} Layout={'fill'} objectFit={'contain'} alt={'pizza'} />
       </div>
     </div>
   )

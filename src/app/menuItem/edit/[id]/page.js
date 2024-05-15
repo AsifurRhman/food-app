@@ -2,10 +2,10 @@
 
 import DeleteButton from "@/Components/Layout/DeleteButton";
 import { UserProfile } from "@/Components/UserProfile/UserProfile";
-import Left from "@/components/icons/Left";
+import Left from "@/components/Icons/Left";
 
-import MenuItemForm from "@/components/layout/MenuItemForm";
-import UserTabs from "@/components/layout/UserTabs";
+import MenuItemForm from "@/components/Layout/MenuItemForm";
+import UserTabs from "@/components/Layout/UserTabs";
 
 import Link from "next/link";
 import {redirect, useParams} from "next/navigation";

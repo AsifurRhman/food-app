@@ -74,7 +74,7 @@ className = {`h-60 w-60 border-2 mt-4 border-dotted grid place-items-center bg-s
       height={550}
       className="absolute object-contain"
       alt="Image not found"
-      layout="fixed"
+      Layout="fixed"
     />
   ) : image ? (
     <Image
@@ -83,7 +83,7 @@ className = {`h-60 w-60 border-2 mt-4 border-dotted grid place-items-center bg-s
       width={550}
       height={550}
       alt={'avatar'}
-      layout="fixed"
+      Layout="fixed"
     />
   ) : (
     <Image
@@ -92,7 +92,7 @@ className = {`h-60 w-60 border-2 mt-4 border-dotted grid place-items-center bg-s
       width={550}
       height={550}
       alt={'avatar'}
-      layout="fixed"
+      Layout="fixed"
     />
   )
 }

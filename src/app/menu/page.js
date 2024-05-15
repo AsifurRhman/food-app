@@ -2,7 +2,7 @@
 
 import SectionHeaders from "@/Components/Layout/SectionHeaders";
 import { CartContext } from "@/Components/Provider/AppContext";
-import MenuItem from "@/components/menu/MenuItem";
+import MenuItem from "@/components/Menu/MenuItem";
 import { useContext, useEffect, useState} from "react";
 
 export default function MenuPage() {
