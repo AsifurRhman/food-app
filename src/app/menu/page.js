@@ -21,7 +21,7 @@ export default function MenuPage() {
     });
   }, []);
 
- // //console.log(addToCart);
+ //console.log(addToCart);
   
   return (
     <section className="mt-8">

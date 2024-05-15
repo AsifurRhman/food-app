@@ -1,5 +1,5 @@
 
-//'use client'
+'use client'
 
 import { Inter, Roboto } from 'next/font/google'
 import './globals.css'
@@ -13,7 +13,7 @@ import { AppProvider } from '@/Components/Provider/AppContext'
 const WhatsAppWidget = dynamic(() => import('react-whatsapp-chat-widget'), {
   ssr: false,
 })
-// const inter = Inter({ subsets: ['latin'] })
+ const inter = Inter({ subsets: ['latin'] })
 const roboto = Roboto({ subsets: ['latin'], weight: ['400', '500', '700'] })
 export const metadata = {
   title: 'Family Kitchen',

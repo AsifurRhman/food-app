@@ -17,9 +17,9 @@ import { useRouter } from "next/navigation";
 export default function MenuItem({menuItem,addToCart}) {
  // const { addToCart,removeCartProduct} = useContext(CartContext);
   const { data } = UserProfile();
-  console.log(data, "data============menuItem page")
+  //console.log(data, "data============menuItem page")
   const email = data?.email
-  console.log(email, "email from menuItem")
+//  console.log(email, "email from menuItem")
   const router = useRouter();
   const {
     image,name,description,basePrice,

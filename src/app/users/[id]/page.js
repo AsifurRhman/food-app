@@ -13,7 +13,7 @@ export default function EditUserPage() {
   const { loading, data } = UserProfile();
   const [refetch,setRefetch] = useState(null)
  
-  ////console.log(data, "edit user page")
+  //console.log(data, "edit user page")
   const [redirectToItems, setRedirectToItems] = useState(false);
   const [user, setUser] = useState(null);
   console.log(user, "edit user page")

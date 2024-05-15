@@ -29,7 +29,7 @@ export function AppProvider({ children }) {
   const userEmail = data?.email
   //console.log(userEmail ,"USER_EMAIL")
   const ls = typeof window !== 'undefined' ? window.localStorage : null;
-// ////console.log(ls,"ls======================ls")
+ //console.log(ls,"ls======================ls")
 //   useEffect(() => {
 //     if (ls && ls.getItem('cart')) {
 //       setCartProducts( JSON.parse( ls.getItem('cart') ) );

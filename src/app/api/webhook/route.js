@@ -10,11 +10,11 @@ export async function POST(req) {
   try {
     const reqBuffer = await req.text();
       const signSecret = process.env.STRIPE_SIGN_SECRET;
-     // //console.log(signSecret, "signsecret===========sign secret")
+     //console.log(signSecret, "signsecret===========sign secret")
     event = stripe.webhooks.constructEvent(reqBuffer, sig, signSecret);
   } catch (e) {
-    //console.error('stripe error');
-   // //console.log(e);
+    console.error('stripe error');
+ 
     return Response.json(e, {status: 400});
   }
 
