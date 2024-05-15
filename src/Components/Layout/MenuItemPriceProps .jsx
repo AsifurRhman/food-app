@@ -1,8 +1,9 @@
-import ChevronDown from "@/components/icons/ChevronDown";
-import ChevronUp from "@/components/icons/ChevronUp";
-import Plus from "@/components/icons/Plus";
-import Trash from "@/components/icons/Trash";
+
 import {useState} from "react";
+import ChevronUp from "../Icons/ChevronUp";
+import ChevronDown from "../Icons/ChevronDown";
+import Trash from "../Icons/Trash";
+import Plus from "../Icons/Plus";
 
 export default function MenuItemPriceProps({name,addLabel,props,setProps}) {
 

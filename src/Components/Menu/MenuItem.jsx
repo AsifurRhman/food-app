@@ -19,7 +19,8 @@ export default function MenuItem({menuItem,addToCart}) {
   const { data } = UserProfile();
   //console.log(data, "data============menuItem page")
   const email = data?.email
-//  console.log(email, "email from menuItem")
+  console.log(email, "email from menuItem")
+  console.log(data,"data from menu item ==")
   const router = useRouter();
   const {
     image,name,description,basePrice,
