@@ -4,7 +4,7 @@ import {getServerSession} from "next-auth";
 
 import { Order } from "@/models/Order";
 import { MenuItem } from "@/models/MenuItem";
-import { authOptions } from "../auth/[...nextAuth]/route";
+import { authOptions } from "../auth/[...nextauth]/route";
 const stripe = require('stripe')(process.env.STRIPE_SK);
 
 export async function POST(req) {

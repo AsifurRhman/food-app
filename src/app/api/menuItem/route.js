@@ -3,7 +3,7 @@
 import mongoose from "mongoose";
 
 import { MenuItem } from "@/models/MenuItem";
-import { isAdmin } from "../auth/[...nextAuth]/route";
+import { isAdmin } from "../auth/[...nextauth]/route";
 
 
 export async function POST(req) {

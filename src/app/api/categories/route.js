@@ -1,7 +1,7 @@
 
 import {Category} from "@/models/Category";
 import mongoose from "mongoose";
-import { isAdmin } from "../auth/[...nextAuth]/route";
+import { isAdmin } from "../auth/[...nextauth]/route";
 
 
 
