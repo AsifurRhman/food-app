@@ -2,16 +2,18 @@
 
 
 import UserTabs from "@/Components/Layout/UserTabs";
+import { CartContext } from "@/Components/Provider/AppContext";
 import { UserProfile } from "@/Components/UserProfile/UserProfile";
 import { dbTimeForHuman } from "@/db/datetime";
 import Link from "next/link";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 
 export default function OrdersPage() {
-  const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState(null);
   const [loadingOrders, setLoadingOrders] = useState(true);
   const {loading, data:profile} = UserProfile();
-//console.log(orders,"orders===========")
+  //console.log(orders,"orders===========")
+ 
   useEffect(() => {
     fetchOrders();
   }, []);
@@ -20,6 +22,11 @@ export default function OrdersPage() {
     setLoadingOrders(true);
     fetch('/api/orders').then(res => {
       res.json().then(orders => {
+        if( orders?.length <= 0){
+          setOrders([]);
+          setLoadingOrders(false);
+          return
+        }
         setOrders(orders.reverse());
         setLoadingOrders(false);
       })
@@ -40,8 +47,8 @@ export default function OrdersPage() {
                       <p className="text-red-500 font-times">Currently you dont have any order</p>
 
                       :
-                      
-                      orders.map(order => (
+                    
+                      orders?.map(order => (
                         <div
                           key={order._id}
                           className="bg-gray-100 mb-2 p-4 rounded-lg flex flex-col md:flex-row items-center gap-6">

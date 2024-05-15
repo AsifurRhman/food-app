@@ -9,7 +9,7 @@ import { CartContext } from '../Provider/AppContext'
 
 export default function Menu() {
   const [bestSellers, setBestSellers] = useState([]);
-
+  const { addToCart, removeCartProduct } = useContext(CartContext);
   useEffect(() => {
     fetch('/api/menuItem').then(res => {
       res.json().then(menuItems => {
@@ -34,7 +34,7 @@ export default function Menu() {
       </div>
       <div className="grid sm:grid-cols-3 gap-4">
         {bestSellers?.length > 0 && bestSellers.map(item => (
-          <MenuItem key={item._id} {...item} />
+          <MenuItem key={item._id} menuItem={item} addToCart={addToCart} />
         ))}
             
               

@@ -1,5 +1,7 @@
 
 import FlyingButton from 'react-flying-item'
+import { UserProfile } from '../UserProfile/UserProfile';
+import Link from 'next/link';
 export default function AddToCartButton({
   hasSizesOrExtras, onClick, basePrice, image
 }) {
@@ -17,6 +19,10 @@ export default function AddToCartButton({
       </div>
     );
   }
+
+  const { data } = UserProfile();
+ // //console.log(data,"data")
+  const userEmail = data?.email
   let cartText;
   if (basePrice <= 0) {
    cartText= <span>Add to cart </span>
@@ -24,14 +30,19 @@ export default function AddToCartButton({
   else {
     cartText=  <span>Add to cart (price:- {basePrice}/-)</span>
   }
+
+  
+ 
   return (
+    
+   
     <button
       type="button"
       onClick={onClick}
       className="mt-4 bg-emerald-500 text-white rounded-full px-8 py-2"
     >
-      
       {cartText}
     </button>
+  
   );
 }

@@ -5,21 +5,15 @@ import SectionHeaders from "@/Components/Layout/SectionHeaders";
 import CartProduct from "@/Components/Menu/CartProduct";
 import { CartContext, cartProductPrice } from "@/Components/Provider/AppContext";
 import { UserProfile } from "@/Components/UserProfile/UserProfile";
-
-
-
-import Image from "next/image";
-import {useContext, useEffect, useState} from "react";
+import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
+
 export default function CartPage() {
-  const { cartProducts, removeCartProduct } = useContext(CartContext);
-  //console.log(cartProducts,"cartProducts============cartProducts============")
+  const {cartProducts,removeCartProduct} = useContext(CartContext);
   const [address, setAddress] = useState({});
-  const {data:profileData} = UserProfile();;
-  const { data } = UserProfile();
-  const email = data?.email;
-  //console.log(email,"email================email from cart page")
+  const {data:profileData} = UserProfile();
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       if (window.location.href.includes('canceled=1')) {
@@ -30,17 +24,14 @@ export default function CartPage() {
 
   useEffect(() => {
     if (profileData?.city) {
-      const { phone, streetAddress, city, postalCode, country,  } = profileData;
-      const email = data?.email;
+      const {phone, streetAddress, city,  country} = profileData;
       const addressFromProfile = {
         phone,
         streetAddress,
         city,
-        postalCode,
-        country,
-   
+ 
+        country
       };
-      //console.log(addressFromProfile,"addressFromProfile===========addressFromProfile")
       setAddress(addressFromProfile);
     }
   }, [profileData]);
@@ -52,21 +43,19 @@ export default function CartPage() {
   function handleAddressChange(propName, value) {
     setAddress(prevAddress => ({...prevAddress, [propName]:value}));
   }
-  const proceedToCheckout = async (ev) => {
+  async function proceedToCheckout(ev) {
     ev.preventDefault();
     // address and shopping cart products
-    //console.log(cartProducts, "cartProducts=========cartProducts");
+
     const promise = new Promise((resolve, reject) => {
-      //console.log(address, "address==============address");
       fetch('/api/checkout', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {'Content-Type':'application/json'},
         body: JSON.stringify({
           address,
           cartProducts,
         }),
       }).then(async (response) => {
-
         if (response.ok) {
           resolve();
           window.location = await response.json();
@@ -75,8 +64,13 @@ export default function CartPage() {
         }
       });
     });
-  };
-  
+
+    await toast.promise(promise, {
+      loading: 'Preparing your order...',
+      success: 'Redirecting to payment...',
+      error: 'Something went wrong... Please try again later',
+    })
+  }
 
   if (cartProducts?.length === 0) {
     return (
@@ -92,7 +86,7 @@ export default function CartPage() {
       <div className="text-center">
         <SectionHeaders mainHeader="Cart" />
       </div>
-      <div className="mt-8 grid gap-8 md:grid-cols-2 grid-cols-1">
+      <div className="mt-8 grid gap-8 grid-cols-2">
         <div>
           {cartProducts?.length === 0 && (
             <div>No products in your shopping cart</div>
@@ -102,19 +96,18 @@ export default function CartPage() {
               key={index}
               product={product}
               onRemove={removeCartProduct}
-              index={index}
             />
           ))}
-          <div className="py-2 pr-16 flex md:justify-end items-center justify-center">
+          <div className="py-2 pr-16 flex justify-end items-center">
             <div className="text-gray-500">
               Subtotal:<br />
-              Delivery Fee:<br />
+              Delivery:<br />
               Total:
             </div>
             <div className="font-semibold pl-2 text-right">
-              {subtotal}/- <br />
-              100/- <br />
-              {subtotal + 100}/-
+              {subtotal}/-<br />
+              100/-<br />
+              {subtotal + 100}
             </div>
           </div>
         </div>
@@ -125,12 +118,6 @@ export default function CartPage() {
               addressProps={address}
               setAddressProp={handleAddressChange}
             />
-            <input
-    type="email"
-    disabled={true}
-    value={email}
-    placeholder={'email'}
-  />
             <button type="submit">Pay {subtotal+100}/-</button>
           </form>
         </div>

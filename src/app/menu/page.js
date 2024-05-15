@@ -3,12 +3,15 @@
 import SectionHeaders from "@/Components/Layout/SectionHeaders";
 import { CartContext } from "@/Components/Provider/AppContext";
 import MenuItem from "@/components/menu/MenuItem";
-import { useEffect, useState} from "react";
+import { useContext, useEffect, useState} from "react";
 
 export default function MenuPage() {
   const [categories, setCategories] = useState([]);
   const [menuItems, setMenuItems] = useState([]);
   //console.log(menuItems,"menuItems====================menuItems")
+  const { addToCart, removeCartProduct } = useContext(CartContext);
+  //console.log(addToCart, "addToCart from menu page")
+  
   useEffect(() => {
     fetch('/api/categories').then(res => {
       res.json().then(categories => setCategories(categories))
@@ -18,7 +21,7 @@ export default function MenuPage() {
     });
   }, []);
 
- // console.log(addToCart);
+ // //console.log(addToCart);
   
   return (
     <section className="mt-8">
@@ -29,7 +32,7 @@ export default function MenuPage() {
           </div>
           <div className="grid sm:grid-cols-3 gap-4 mt-6 mb-12">
             {menuItems.filter(item => item.category === c._id).map(item => (
-              <MenuItem key={item._id} {...item}  />
+              <MenuItem key={item._id} menuItem={item} addToCart={addToCart} />
             ))}
           </div>
         </div>

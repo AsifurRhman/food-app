@@ -27,7 +27,7 @@ export const authOptions = {
         async authorize(credentials, req) {
           const email = credentials?.email;
           const password = credentials?.password;
-          //console.log(email, password, "email-pass");
+          
           mongoose.connect(process.env.DATABASE_URL);
           const user = await User.findOne({ email });
           const passwordOk = user && bcrypt.compareSync(password, user.password);

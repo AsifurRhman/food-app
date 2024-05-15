@@ -1,5 +1,5 @@
 
-
+'use client';
 import Image from "next/image";
 import MenuItemTile from "./MenuItemTile";
 import FlyingButton from 'react-flying-item'
@@ -8,14 +8,19 @@ import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { UserProfile } from "../UserProfile/UserProfile";
 import { CartContext } from "../Provider/AppContext";
+import { useRouter } from "next/navigation";
 
 
 
-export default function MenuItem(menuItem) {
-  const { addToCart,removeCartProduct} = useContext(CartContext);
+
+
+export default function MenuItem({menuItem,addToCart}) {
+ // const { addToCart,removeCartProduct} = useContext(CartContext);
   const { data } = UserProfile();
-  //console.log(data.email, "data============menuItem page")
-  //const email = data?.email
+  console.log(data, "data============menuItem page")
+  const email = data?.email
+  console.log(email, "email from menuItem")
+  const router = useRouter();
   const {
     image,name,description,basePrice,
     sizes, extraIngredientPrices,
@@ -25,22 +30,31 @@ export default function MenuItem(menuItem) {
   ] = useState(sizes?.[0] || null);
   const [selectedExtras, setSelectedExtras] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
-////console.log(menuItem,"menuItem=============menuItem")
-  console.log(addToCart, "addtocart");
-  console.log(removeCartProduct, "removeCartProduct");
- // //console.log(CartContext, "CartContext")
+
   
 
   async function handleAddToCartButtonClick() {
-    //console.log(' enter handleAddToCartButtonClick');
+ 
+    if (!email) {
+      toast.error("Please Login first")
+      setTimeout(() => {
+      router.push("/login")
+      }, 1000);
+      return
+    }
+    if (data?.admin) {
+      toast.error("Admins are not allowed to add items to the cart")
+      return
+    }
     const hasOptions = sizes.length > 0 || extraIngredientPrices.length > 0;
     if (hasOptions && !showPopup) {
       setShowPopup(true);
       return;
     }
-     console.log(menuItem, "menuItem from handleAddToCartButtonClick===========");
+     //console.log(menuItem, "menuItem from handleAddToCartButtonClick===========");
     //console.log(selectedSize, selectedExtras,"selectedSize, selectedExtras from handleAddToCartButtonClick");
-    addToCart(menuItem, selectedSize, selectedExtras);
+    //console.log(email, "email from handleAddToCartButtonClick")
+    addToCart(menuItem, selectedSize, selectedExtras,email);
     toast.success("adding to the cart")
     await new Promise(resolve => setTimeout(resolve, 1000));
     //console.log('hiding popup');
@@ -122,6 +136,8 @@ export default function MenuItem(menuItem) {
                   ))}
                 </div>
               )}
+             
+           
               <FlyingButton
               
                 targetTop={'5%'}
@@ -130,7 +146,7 @@ export default function MenuItem(menuItem) {
                 
                 <div className=" sticky bottom-2 text-white shadow-xl bg-primary px-8 py-2 rounded-lg"
                      onClick={handleAddToCartButtonClick}>
-                  Add to cart ({selectedPrice}/-)
+               Add ({selectedPrice}/-)
                 </div>
               </FlyingButton>
               <button
