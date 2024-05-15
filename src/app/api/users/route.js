@@ -1,6 +1,6 @@
 
 import mongoose from "mongoose";
-import { isAdmin } from "../auth/[...nextAuth]/route";
+import { isAdmin } from "../auth/[...nextauth]/route";
 import { User } from "@/models/User";
 
 export async function GET() {
