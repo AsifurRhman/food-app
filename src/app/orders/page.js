@@ -12,7 +12,7 @@ export default function OrdersPage() {
   const [orders, setOrders] = useState(null);
   const [loadingOrders, setLoadingOrders] = useState(true);
   const {loading, data:profile} = UserProfile();
-  //console.log(orders,"orders===========")
+  console.log(orders,"orders===========")
  
   useEffect(() => {
     fetchOrders();
