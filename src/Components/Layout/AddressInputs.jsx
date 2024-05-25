@@ -15,7 +15,7 @@ export default function AddressInputs({addressProps,setAddressProp,disabled=fals
         />
         <div className="grid grid-cols-2 gap-2">
           {/* <div>
-            <label>Postal code</label>
+            <label>Postal code:</label>
             <input
               disabled={disabled}
               type="text" placeholder="Postal code"
